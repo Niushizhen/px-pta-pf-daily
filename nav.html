@@ -10,8 +10,8 @@ html,body{height:100%}
 body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;background:#eef1f5;color:#1a1a2e;display:flex;flex-direction:column;height:100vh;overflow:hidden}
 .topbar{background:#fff;border-bottom:1px solid #e0e5ec;box-shadow:0 1px 4px rgba(0,0,0,.04);flex:0 0 auto;z-index:10}
 .title{font-size:15px;color:#1a3a4a;font-weight:600;padding:11px 16px 5px;letter-spacing:.5px}
-.tabs{display:flex;flex-wrap:wrap;gap:5px;padding:0 12px 9px}
-.tab{padding:6px 13px;font-size:12.5px;color:#5a6b7d;background:#f2f5f9;border:1px solid #e4e9f0;border-radius:16px;cursor:pointer;white-space:nowrap;text-decoration:none;transition:.12s;display:inline-flex;align-items:center}
+.tabs{display:flex;flex-wrap:wrap;gap:4px;padding:0 12px 9px}
+.tab{padding:6px 11px;font-size:12.5px;color:#5a6b7d;background:#f2f5f9;border:1px solid #e4e9f0;border-radius:16px;cursor:pointer;white-space:nowrap;text-decoration:none;transition:.12s;display:inline-flex;align-items:center}
 .tab:hover{background:#e8f0fc;color:#2c7be5;border-color:#bcd4f0}
 .tab.active{background:#2c7be5;color:#fff;border-color:#2c7be5;font-weight:600}
 .tab .new{display:inline-block;background:#e8743b;color:#fff;font-size:9px;line-height:1;padding:2px 5px;border-radius:8px;margin-left:5px;font-weight:600}
@@ -58,6 +58,16 @@ iframe{position:absolute;inset:0;width:100%;height:100%;border:none;background:#
     tabs.forEach(function(t){if(t.getAttribute('data-src')===h)m=t;});
     if(m){activate(m);}
   }
+  /* 子页面自带 wb-nav 顶栏与首行标签页重复: 加载后移除(同源可操作) */
+  function stripInnerNav(){
+    try{
+      var d=view.contentDocument;
+      if(!d){return;}
+      var n=d.getElementById('wb-nav');
+      if(n&&n.parentNode){n.parentNode.removeChild(n);}
+    }catch(e){}
+  }
+  view.addEventListener('load',stripInnerNav);
 })();
 </script>
 </body>
