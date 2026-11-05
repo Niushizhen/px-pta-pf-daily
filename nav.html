@@ -48,6 +48,7 @@ iframe{position:absolute;inset:0;width:100%;height:100%;border:none;background:#
     el.classList.add('active');
     view.src=el.getAttribute('data-src');
     try{history.replaceState(null,'','#'+el.getAttribute('data-src'));}catch(e){}
+    pollStrip();
   }
   tabs.forEach(function(t){
     t.addEventListener('click',function(e){e.preventDefault();activate(t);});
@@ -59,15 +60,24 @@ iframe{position:absolute;inset:0;width:100%;height:100%;border:none;background:#
     if(m){activate(m);}
   }
   /* 子页面自带 wb-nav 顶栏与首行标签页重复: 加载后移除(同源可操作) */
-  function stripInnerNav(){
+  function strip(){
     try{
       var d=view.contentDocument;
-      if(!d){return;}
+      if(!d||!d.getElementById) return;
       var n=d.getElementById('wb-nav');
-      if(n&&n.parentNode){n.parentNode.removeChild(n);}
+      if(n&&n.parentNode){ n.parentNode.removeChild(n); }
     }catch(e){}
   }
-  view.addEventListener('load',stripInnerNav);
+  /* 轮询兜底: 解决重页面(图/脚本多) load 事件时机竞态导致偶发未移除 */
+  function pollStrip(){
+    var i=0;
+    var iv=setInterval(function(){
+      i++;
+      strip();
+      if(i>50){ clearInterval(iv); }   /* 最多约 2.5s */
+    },50);
+  }
+  view.addEventListener('load', strip);   /* 每次 iframe 加载完成再移除一次 */
 })();
 </script>
 </body>
