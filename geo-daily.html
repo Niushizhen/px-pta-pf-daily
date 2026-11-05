@@ -1,270 +1,95 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>全球地缘风险日报 · 归档</title>
 <style>
-  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; max-width: 1080px; margin: 0 auto; padding: 24px; background: #f4f6fb; color: #1f2937; }
-  .board-head { background: linear-gradient(135deg, #0f172a, #1e3a8a); color: #fff; padding: 28px 32px; border-radius: 16px; margin-bottom: 24px; }
-  .board-head h1 { margin: 0; font-size: 30px; }
-  .board-head .sub { margin-top: 6px; opacity: .85; font-size: 14px; }
-  .board-head .meta { margin-top: 10px; font-size: 13px; opacity: .75; }
-  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
-  .geo-card { background: #fff; border-radius: 12px; padding: 18px; box-shadow: 0 1px 3px rgba(0,0,0,.06); border-left: 4px solid #1e3a8a; }
-  .geo-date { font-weight: 700; font-size: 16px; color: #0f172a; }
-  .geo-rating { display: inline-block; margin: 8px 0; font-size: 13px; padding: 2px 10px; border-radius: 999px; }
-  .geo-sum { font-size: 14px; line-height: 1.6; color: #374151; min-height: 42px; }
-  .geo-link { display: inline-block; margin-top: 8px; color: #1e3a8a; text-decoration: none; font-weight: 600; }
-  .geo-link:hover { text-decoration: underline; }
-  .back { margin-bottom: 16px; }
-  .back a { color: #1e3a8a; text-decoration: none; }
-  .footer { margin-top: 32px; font-size: 12px; color: #6b7280; text-align: center; }
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;background:#eef1f5;color:#1a1a2e;display:flex;flex-direction:column;height:100vh;overflow:hidden}
+.topbar{background:#fff;border-bottom:1px solid #e0e5ec;box-shadow:0 1px 4px rgba(0,0,0,.04);flex:0 0 auto;z-index:10}
+.title{font-size:15px;color:#1a3a4a;font-weight:600;padding:11px 16px 2px;letter-spacing:.5px}
+.sub{font-size:11.5px;color:#7a8aa0;padding:0 16px 7px}
+.sub b{color:#2c7be5;font-weight:600}
+.tabs{display:flex;flex-wrap:wrap;gap:4px;padding:0 12px 9px}
+.tab{padding:5px 10px;font-size:12px;color:#5a6b7d;background:#f2f5f9;border:1px solid #e4e9f0;border-radius:14px;cursor:pointer;white-space:nowrap;text-decoration:none;transition:.12s;display:inline-flex;align-items:center}
+.tab:hover{background:#e8f0fc;color:#2c7be5;border-color:#bcd4f0}
+.tab.active{background:#2c7be5;color:#fff;border-color:#2c7be5;font-weight:600}
+.frame-wrap{flex:1 1 auto;position:relative;background:#eef1f5}
+iframe{position:absolute;inset:0;width:100%;height:100%;border:none;background:#eef1f5}
 </style>
 </head>
 <body>
-  <div class="back"><a href="index.html">← 返回站点主页</a></div>
-  <div class="board-head">
-    <h1>🌐 全球地缘风险日报 · 归档</h1>
-    <div class="sub">新凤鸣集团 · 产业研究部</div>
-    <div class="meta">共 39 份日报 · 按日期倒序 · 数据来源：公开媒体/机构交叉验证</div>
+<div class="topbar">
+  <div class="title">🌐 全球地缘风险日报 · 归档</div>
+  <div class="sub">按文件日期倒序 · 共 40 期 · 最新 <b>2026-11-05</b> · 点击日期查看当天日报，md 原文存于 geo-risk/</div>
+  <div class="tabs" id="tabs">
+<a class="tab active" data-src="geo_20261105.html">11-05 周四</a>
+<a class="tab" data-src="geo_20261103.html">11-03 周二</a>
+<a class="tab" data-src="geo_20261102.html">11-02 周一</a>
+<a class="tab" data-src="geo_20261101.html">11-01 周日</a>
+<a class="tab" data-src="geo_20261030.html">10-30 周五</a>
+<a class="tab" data-src="geo_20261029.html">10-29 周四</a>
+<a class="tab" data-src="geo_20261024.html">10-24 周六</a>
+<a class="tab" data-src="geo_20261023.html">10-23 周五</a>
+<a class="tab" data-src="geo_20261022.html">10-22 周四</a>
+<a class="tab" data-src="geo_20261021.html">10-21 周三</a>
+<a class="tab" data-src="geo_20261020.html">10-20 周二</a>
+<a class="tab" data-src="geo_20261017.html">10-17 周六</a>
+<a class="tab" data-src="geo_20261015.html">10-15 周四</a>
+<a class="tab" data-src="geo_20261014.html">10-14 周三</a>
+<a class="tab" data-src="geo_20261013.html">10-13 周二</a>
+<a class="tab" data-src="geo_20261010.html">10-10 周六</a>
+<a class="tab" data-src="geo_20261009.html">10-09 周五</a>
+<a class="tab" data-src="geo_20261008.html">10-08 周四</a>
+<a class="tab" data-src="geo_20261007.html">10-07 周三</a>
+<a class="tab" data-src="geo_20260930.html">09-30 周三</a>
+<a class="tab" data-src="geo_20260929.html">09-29 周二</a>
+<a class="tab" data-src="geo_20260924.html">09-24 周四</a>
+<a class="tab" data-src="geo_20260923.html">09-23 周三</a>
+<a class="tab" data-src="geo_20260921.html">09-21 周一</a>
+<a class="tab" data-src="geo_20260919.html">09-19 周六</a>
+<a class="tab" data-src="geo_20260918.html">09-18 周五</a>
+<a class="tab" data-src="geo_20260917.html">09-17 周四</a>
+<a class="tab" data-src="geo_20260916.html">09-16 周三</a>
+<a class="tab" data-src="geo_20260915.html">09-15 周二</a>
+<a class="tab" data-src="geo_20260914.html">09-14 周一</a>
+<a class="tab" data-src="geo_20260912.html">09-12 周六</a>
+<a class="tab" data-src="geo_20260911.html">09-11 周五</a>
+<a class="tab" data-src="geo_20260910.html">09-10 周四</a>
+<a class="tab" data-src="geo_20260909.html">09-09 周三</a>
+<a class="tab" data-src="geo_20260908.html">09-08 周二</a>
+<a class="tab" data-src="geo_20260907.html">09-07 周一</a>
+<a class="tab" data-src="geo_20260905.html">09-05 周六</a>
+<a class="tab" data-src="geo_20260904.html">09-04 周五</a>
+<a class="tab" data-src="geo_20260903.html">09-03 周四</a>
+<a class="tab" data-src="geo_20260902.html">09-02 周三</a>
   </div>
-  <div class="cards">
-      <div class="geo-card">
-        <div class="geo-date">2026-11-03</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum">美伊围绕霍尔木兹的封锁与袭船战延续升级，伊朗对以报复信号转强、与美谈判口风转硬；俄乌重启三座炼厂打击、能源战再升温；朝鲜列装集束弹头、台海/南海演训常态化，叠加欧盟气价高位与利比亚减产，多重供给扰动共振，能化溢价无确定性回落拐点。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/11/地缘跟踪_2026-11-03.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-11-02</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum">霍尔木兹袭船由水雷升级为IRGC直接打击（48小时三袭超级油轮）并对韩船东发出法律威胁，美伊选后打击预案与外交回暖并存、俄乌Kstovo炼厂起火确认，能源供给风险溢价底部坚实，油价守Brent约$117、WTI约$104，TTF维持2022年底以来高位，短期无确定性回落拐点。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/11/地缘跟踪_2026-11-02.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-11-01</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum">霍尔木兹袭船战术质变（吸附式水雷首现实效）叠加美伊「谈而不决」、俄乌炼厂互袭与朝鲜弹头实战化，能源供给风险溢价底部坚实，油价守 $113–117（Brent）、TTF 维持 2022 年底以来高位，短期无确定性回落拐点。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/11/地缘跟踪_2026-11-01.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-10-30</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum">美伊外交出现缓和信号（万斯致信雷扎伊）压低油价，但胡塞六袭沙特核心炼厂/机场、霍尔木兹再现油轮触雷（IRGC称三艘起火）与欧洲TTF气价破100欧元，令能源供给风险溢价再上台阶；俄乌第聂伯罗火车站袭击14死与人道停火并存的悖论延续，地缘底部仍坚实。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/10/地缘跟踪_2026-10-30.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-10-29</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum">美伊卡塔尔草案遭伊方拒斥、霍尔木兹 7 日均线仅约 3% 战前通行且再现油轮触雷，叠加胡塞宣称打击沙特拉斯坦努拉炼厂，油价守高位（布油约 111–116 美元）；俄乌能源战与以色列选后袭伊风险构成尾部，能化风险溢价无回落拐点。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/10/地缘跟踪_2026-10-29.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-10-24</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum">布油 10/23 收 116.72 美元创 6 个月新高（+3.14%）、WTI 103.27，受两艘超级油轮霍尔木兹南部触雷（载 450 万桶）、胡塞袭沙特致阿美达兰总部疏散、利比亚减产三重推涨；特朗普威胁选后「史诗怒火」、华尔兹称或僵持一年，霍尔木兹仍实质受限，评级维持高。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/10/地缘跟踪_2026-10-24.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-10-23</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum">布油 10/22 收盘跳升至 113.17 美元（+4%）、WTI 99.47，受达曼机场遇袭与霍尔木兹 7 日提案到期双重驱动，风险溢价重上台阶；美伊 7 日重开提案今日落空、阿拉格齐重申「美接受条件前海峡关闭」，独立通行仍近归零；俄乌现缓和信号但能源战未停、欧盟气价破 90 欧元，三大咽喉与欧洲气价均无确定性拐点，评级维持高。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/10/地缘跟踪_2026-10-23.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-10-22</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum">胡塞 10/21 夜间击中达曼国际机场（1 死 8 伤）并袭谢拜油田，美下令撤出沙特非紧急人员，红海风险溢价再上台阶；美伊停火草案僵局、IRGC 称对美以舰船「100% 关闭」霍尔木兹，7 日提案 10/23 到期；俄乌现缓和信号、油价边际回落，但三大咽喉与欧洲气价仍无确定性拐点，评级维持高。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/10/地缘跟踪_2026-10-22.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-10-21</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum">胡塞 48 小时内宣称六袭沙特能源与机场目标，推动布油盘中破 111 美元、欧洲气价创 2022 年末新高；美伊处「临界点」但巴基斯坦斡旋续推，俄乌能源战向德鲁日巴管道节点延伸，供给风险溢价无确定性回落拐点。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/10/地缘跟踪_2026-10-21.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-10-20</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum">美参议院推进“战争权力决议”约束对伊动武、Axios 称特朗普尚未敲定再袭伊朗，叠加拉夫罗夫访德黑兰斡旋，使升级被制度与外交部分对冲；但霍尔木兹仍事实性近关闭、俄乌能源战单夜互袭升级（俄 16 弹道+200 余无人机袭乌、乌回击圣彼得堡油码头）、胡塞袭也门营地致 53 死，风险溢价底部坚实、短期无确定性缓和拐点。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/10/地缘跟踪_2026-10-20.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-10-17</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum">美军拟定含"炸弹之母"的对伊能源/核设施打击方案、乌军烧穿俄第三大炼厂(Ryazan)、布油周五触及110美元(5月来首次)，三重共振推升战争溢价；霍尔木兹仍近关闭、欧盟储气历史低位，短期无确定性缓和拐点，但特朗普"战事很快结束、无意核武与地面部队"的表态令边际信号多空交织。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/10/地缘跟踪_2026-10-17.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-10-15</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum">10/14 美总统在战情室讨论对伊"毁灭性打击"计划、乌军首次命中俄气萨拉瓦特巨型炼厂，双线能源战再升级；布油守 106、TTF 创 3.5 年新高，战争溢价底部坚实，但美伊谈判与"中期选举前不攻击"基调并存，方向仍取决于后续是否真正动手。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/10/地缘跟踪_2026-10-15.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-10-14</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum">美伊谅解备忘录 10/14 被伊方确认失效、战事官方重启，叠加特朗普"霍尔木兹 20% 收费"与伊朗袭船战术升级（扩至阿曼湾/卡塔尔/阿联酋、48h 5 起），双海峡再添上行动能；俄乌"能源停火"崩溃、乌重启 500+ 无人机袭俄能源设施，布油守 106 美元、战争溢价底部坚实。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/10/地缘跟踪_2026-10-14.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-10-13</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum">美伊 10/12 首现"油轮对油轮"直接交火（美军击毁 3 艘伊朗油轮、伊方宣称反击 6 艘），叠加胡塞袭利雅得机场 12 死、特朗普考虑参战，霍尔木兹与红海双线再升级，布油守 106 美元、战争溢价底部坚实；俄乌"能源停火"沦为单边政治宣言，缺乏约束力、炼油打击延续。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/10/地缘跟踪_2026-10-13.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-10-10</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum">霍尔木兹打击"质变"——IRGC 10/10 公开无人机/导弹打击船只影像、威胁扩至波斯湾，叠加 IMO 单周 11–12 艘油轮遇袭（开战最高）、Kpler 经峡出口较战前低约 40%，供给风险溢价再上台阶；俄乌能源战延续（乌袭 Tver 火箭燃料厂/俄电网）、胡塞扩大对沙特打击致多国航空禁飞，多重扰动无确定性下行拐点，油价战争溢价底部坚实。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/10/地缘跟踪_2026-10-10.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-10-09</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum">美伊边际缓和（特朗普称中期选举前不攻击、夜盘油价回撤）与备战信号并存，但霍尔木兹遇袭创年内新高（单周 10 艘油轮、10/6 仅 7 艘通行）叠加俄乌 10/8 能源战再升级（基辅逾 300 万人断电），供给风险仍推动油价 10/8 盘中涨超 5%；国内能化板块爆发（燃油 +18.35%、原油 +8%），战争溢价底部坚实、难有确定性下行拐点。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/10/地缘跟踪_2026-10-09.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-10-08</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum">假期后首个工作日，霍尔木兹仍 CRITICAL（IRGC 10/7 称"已关闭"、10 月 9 起油轮遇袭约 9 月全月一半）与俄乌 10/7 新一轮能源互袭（乌称瘫痪俄 51% 炼油能力、俄柴油禁令延至 10 月底）构成双重供给风险；油价守百元、G7 释储与沙特东西管道 5.8 mb/d 平抑上行但战争溢价底部坚实，能化中枢风险溢价难消解。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/10/地缘跟踪_2026-10-08.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-10-07</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum">假期全球地缘风险维持高位，霍尔木兹与曼德海峡仍 CRITICAL、月初四油轮遇袭，双海峡钳制未松动；俄乌能源战延续、俄柴油禁令延至 10 月底，朝鲜 10/3 中程导弹试射推高东北亚紧张，欧盟储气低位＋俄气禁令进程＋巴拿马运河再限航，多重供给扰动支撑能化中枢、风险溢价底部坚实。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/10/地缘跟踪_2026-10-07.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-30</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum">美伊"七日重开霍尔木兹"方案周末破裂、特朗普否认对伊让利，海峡仍近关闭（日通行不足8 mb/d），油价风险溢价高位；俄乌能源战延续、朝鲜兵员入俄扩至5万计划、欧盟储气2011年来最低，冬季能源缺口与双海峡风险共同支撑能化中枢。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-30.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-29</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum">美伊 9/25 互袭打破临时停火，霍尔木兹日通行仍仅约 3.7–8 mb/d、不足战前一半；沙特拉斯塔努拉重启难补红海缺口，双海峡+制裁+俄乌能源战三重挤压延续，油价百元上方高位震荡，欧洲气价与储气仍处历史低位，能化系风险溢价易涨难跌。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-29.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-24</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum">美伊在联大强硬表态令霍尔木兹重开预期落空，油价终结五连跌、Brent 重回 103 美元上方；俄乌能源战与红海胡塞未降温，欧洲储气处 15 年最低。习特今日华盛顿会谈为最大边际变量，能源风险溢价底部坚实、短期无确定性下行拐点。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-24.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-23</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum">**降温交易主导盘面**——美伊纽约 3 小时密谈 + 沙特东西管道重启，油价五连跌（Brent $99.25、WTI $94.59），TTF 回落至 €71；但成品油仍是死结（欧美柴油创纪录、Q4 欧洲航煤缺口 51 万桶/日），叠加乌军袭俄两炼厂、马克龙警告"新一轮石油冲击"，**现货端并未降温**。</div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-23.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-21</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-21.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-19</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-19.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-18</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-18.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-17</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-17.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-16</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-16.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-15</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-15.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-14</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-14.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-12</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-12.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-11</div>
-        <span class="geo-rating" style="background:#e5e7eb;color:#374151">风险 —</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-11.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-10</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-10.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-09</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-09.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-08</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-08.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-07</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-07.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-05</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-05.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-04</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-04.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-03</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-03.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-      <div class="geo-card">
-        <div class="geo-date">2026-09-02</div>
-        <span class="geo-rating" style="background:#fee2e2;color:#b91c1c">风险 高</span>
-        <div class="geo-sum"></div>
-        <a class="geo-link" href="https://github.com/Niushizhen/px-pta-pf-daily/blob/main/geo-risk/2026/09/地缘跟踪_2026-09-02.md" target="_blank" rel="noopener">查看全文 →</a>
-      </div>
-  </div>
-  <div class="footer">⚠️ 本页面内容由 AI 基于公开信息整理生成，仅供参考，不构成任何投资建议。投资有风险，决策需谨慎。</div>
+</div>
+<div class="frame-wrap">
+  <iframe id="view" src="geo_20261105.html" title="地缘日报内容"></iframe>
+</div>
+<script>
+(function(){
+  var tabs=Array.prototype.slice.call(document.querySelectorAll('#tabs .tab'));
+  var view=document.getElementById('view');
+  function activate(el){
+    tabs.forEach(function(t){t.classList.remove('active');});
+    el.classList.add('active');
+    view.src=el.getAttribute('data-src');
+    try{history.replaceState(null,'','#'+el.getAttribute('data-src'));}catch(e){}
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(e){e.preventDefault();activate(t);});
+  });
+  var h=(location.hash||'').replace('#','');
+  if(h){
+    var m=null;
+    tabs.forEach(function(t){if(t.getAttribute('data-src')===h)m=t;});
+    if(m){activate(m);}
+  }
+})();
+</script>
 </body>
 </html>
